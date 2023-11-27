@@ -5,6 +5,7 @@ coast_chosen = 0
 jungle_chosen = 0
 desert_chosen = 0
 cold_choice = 0
+first_action_complete = 0
 
 def area_name_pick():
     print("choose your countries name")
@@ -66,7 +67,27 @@ def terrain_generation_beggining():
     else:
         print("the country of " + player_country_name + " starts in the freezing wasteland")
 
+def first_action_tutorial():
+    if jungle_chosen == 1:
+        global first_action_complete
+        while first_action_complete == 0:
+            print("what is your first aciton as" + player_country_name + "\n[Gather wood]\n[Hunt]\n[Build]")
+            global jungle_first_action
+            jungle_first_action = input()
+            if jungle_first_action == "wood":
+                first_action_complete = first_action_complete + 1
+                print("wood placeholder")
+            elif jungle_first_action == "hunt":
+                first_action_complete = first_action_complete + 1
+                print("hunting placeholder")
+            elif jungle_first_action == "build":
+                first_action_complete = first_action_complete + 1
+                print("build placeholder")
+            else:
+                print("invalid option")
+
 
 area_name_pick()
 people_generator()
 terrain_generation_beggining()
+first_action_tutorial()
