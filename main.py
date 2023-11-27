@@ -1,9 +1,14 @@
 from random import seed
 from random import randint
 from datetime import datetime
+coast_chosen = 0
+jungle_chosen = 0
+desert_chosen = 0
+cold_choice = 0
 
 def area_name_pick():
     print("choose your countries name")
+    global player_country_name
     player_country_name = input()
     print("your countries name is " + player_country_name)
     print("what area do you want to start in: \n[Coastline]\n[Jungle]\n[Desert]\n[The Cold (Hard mode)]")
@@ -38,7 +43,7 @@ def people_generator():
             print("your first survivor is 2")
         elif value == 3:
             global first_survivor3
-            first_survivor3 =1
+            first_survivor3 = 1
             print("your first survivor is 3")
         elif value == 4:
             global first_survivor4
@@ -50,8 +55,18 @@ def people_generator():
             print("your first survivor is 5")
 
 
+def terrain_generation_beggining():
+    print("generating terrain")
+    if coast_chosen == 1:
+        print("the country of " + player_country_name + " begins on the coast")
+    elif jungle_chosen == 1:
+        print("the country of " + player_country_name + " starts inside a dense forest")
+    elif desert_chosen == 1:
+        print("the country of " + player_country_name + " starts in a barren desert")
+    else:
+        print("the country of " + player_country_name + " starts in the freezing wasteland")
+
+
 area_name_pick()
 people_generator()
-
-
-
+terrain_generation_beggining()
