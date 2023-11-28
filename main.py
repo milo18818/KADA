@@ -8,13 +8,11 @@ jungle_chosen = 0
 desert_chosen = 0
 cold_choice = 0
 
-#action related
-first_action_complete = 0
 
 #resources:
 wood_resource = 0
-stone_resource = 0
 food_resource = 0
+day_energy = 3
 
 
 def area_name_pick():
@@ -77,69 +75,38 @@ def terrain_generation_beggining():
     else:
         print("the country of " + player_country_name + " ❄starts in the freezing wasteland❄")
 
+def wood_minigame():
+    for x in range(1):
+        wood_minigame_number1 = randint(0, 50)
+        wood_minigame_number2 = randint(0, 50)
+        wood_minigame_answer = int(input("what is " + str(wood_minigame_number1) + " + " + str(wood_minigame_number2) + " "))
+        if wood_minigame_answer == wood_minigame_number1 + wood_minigame_number2:
+            global wood_resource
+            wood_resource = wood_resource + 1
+            print("you succesfully cut down a tree you now have " + str(wood_resource) + " wood")
+        else:
+            print("wrong answer")
+
 def jungle_first_action():
-    global first_action_complete
-    while first_action_complete == 0:
-        print("what is your first aciton as" + player_country_name + "\n[🪵Gather wood🪵]\n[🥩Hunt🥩]\n[🛖Build🛖]")
+    global day_energy
+    while day_energy > 0:
+        print("what is your desired aciton as" + player_country_name + "\n[🪵Gather wood🪵]\n[🥩Hunt🥩]\n[🛖Build🛖]")
         global jungle_first_action
         jungle_first_action = input()
         if jungle_first_action == "wood":
-            first_action_complete = first_action_complete + 1
-            print("you harvested wood")
-            global wood_resource
-            wood_resource = wood_resource + 1
-            print("you now have " + str(wood_resource) + " wood")
+            day_energy = day_energy - 1
+            wood_minigame()
         elif jungle_first_action == "hunt":
-            first_action_complete = first_action_complete + 1
+            day_energy = day_energy - 1
             print("hunting placeholder")
         elif jungle_first_action == "build":
-            first_action_complete = first_action_complete + 1
+            day_energy = day_energy - 1
             print("build placeholder")
         else:
             print("invalid option")
 
-def coatline_action():
-    global first_action_complete
-    while first_action_complete == 0:
-        print("what is your first action as " + player_country_name + "\n[🎣Fish🎣]\n[🪵Gather wood🪵]\n[🛖Build🛖]")
-        global coast_first_action
-        coast_first_action = input()
-        if coast_first_action == "wood":
-            first_action_complete = first_action_complete + 1
-            print("you harvested wood")
-            global wood_resource
-            wood_resource = wood_resource + 1
-            print("you now have " + str(wood_resource) + " wood")
-        elif coast_first_action == "fish":
-            first_action_complete = first_action_complete + 1
-            print("fishing placeholder")
-        elif coast_first_action == "build":
-            first_action_complete = first_action_complete + 1
-            print("build placeholder")
-        else:
-            print("invalid option")
-
-def desert_action():
-    global first_action_complete
-    while first_action_complete == 0:
-        print("what is your first action as " + player_country_name + "\n[🥩Hunt🥩]\n[🌵Harvest cactus🌵]\n[🛖build🛖]")
-        global desert_first_action
-        desert_first_action = input()
-        if desert_first_action == "cactus":
-            first_action_complete = first_action_complete + 1
-            print("you harvested cactus")
-            global wood_resource
-            wood_resource = wood_resource + 2
-            print("you now have " + str(wood_resource) + " wood")
-        elif desert_first_action == "fish":
-            first_action_complete = first_action_complete + 1
-            print("fishing placeholder")
-        elif desert_first_action == "build":
-            first_action_complete = first_action_complete + 1
-            print("build placeholder")
-        else:
-            print("invalid option")
 def first_action_tutorial():
+    day_energy = 3
     if jungle_chosen == 1:
         jungle_first_action()
     elif coast_chosen == 1:
@@ -148,8 +115,6 @@ def first_action_tutorial():
         desert_action()
     else:
         print("the cold placeholder")
-    if first_action_complete == 1:
-        print("egg roll")
 
 area_name_pick()
 people_generator()
