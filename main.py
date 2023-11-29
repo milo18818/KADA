@@ -3,6 +3,10 @@ from random import randint
 from datetime import datetime
 from formatting import *
 
+#constants
+WOOD_STARTRANGE=0
+WOOD_ENDRANGE=50
+
 #area choice start:
 coast_chosen = 0
 jungle_chosen = 0
@@ -78,8 +82,8 @@ def terrain_generation_beggining():
 
 def wood_minigame():
     for x in range(1):
-        wood_minigame_number1 = randint(0, 50)
-        wood_minigame_number2 = randint(0, 50)
+        wood_minigame_number1 = randint(WOOD_STARTRANGE, WOOD_ENDRANGE)
+        wood_minigame_number2 = randint(WOOD_STARTRANGE, WOOD_ENDRANGE)
         wood_minigame_answer = int(input("what is " + str(wood_minigame_number1) + " + " + str(wood_minigame_number2) + " "))
         if wood_minigame_answer == wood_minigame_number1 + wood_minigame_number2:
             global wood_resource
