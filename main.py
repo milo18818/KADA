@@ -1,3 +1,5 @@
+import g_
+
 from random import seed
 from random import randint
 from datetime import datetime
@@ -12,7 +14,6 @@ cold_choice = 0
 
 
 #resources:
-wood_resource = 0
 food_resource = 0
 day_energy = 3
 

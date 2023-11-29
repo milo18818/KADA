@@ -1,3 +1,4 @@
+import g_
 from random import randint
 
 #constants
@@ -10,8 +11,7 @@ def wood_minigame():
         wood_minigame_number2 = randint(WOOD_STARTRANGE, WOOD_ENDRANGE)
         wood_minigame_answer = int(input("what is " + str(wood_minigame_number1) + " + " + str(wood_minigame_number2) + " "))
         if wood_minigame_answer == wood_minigame_number1 + wood_minigame_number2:
-            global wood_resource
-            wood_resource = wood_resource + 1
-            print("you succesfully cut down a tree you now have " + str(wood_resource) + " wood")
+            g_.wood_resource = g_.wood_resource + 1
+            print("you succesfully cut down a tree you now have " + str(g_.wood_resource) + " wood")
         else:
             print("wrong answer")
