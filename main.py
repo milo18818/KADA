@@ -1,5 +1,4 @@
 import g_
-
 from random import seed
 from random import randint
 from datetime import datetime
@@ -81,7 +80,7 @@ def terrain_generation_beggining():
 def jungle_first_action():
     global day_energy
     while day_energy > 0:
-        print("what is your desired aciton as" + player_country_name + "\n[🪵Gather wood🪵]\n[🥩Hunt🥩]\n[🛖Build🛖]")
+        print("what is your desired aciton as " + player_country_name + "\n[🪵Gather wood🪵]\n[🥩Hunt🥩]\n[🛖Build🛖]")
         global jungle_first_action
         jungle_first_action = input()
         if jungle_first_action == "wood":
@@ -89,7 +88,7 @@ def jungle_first_action():
             wood_minigame()
         elif jungle_first_action == "hunt":
             day_energy = day_energy - 1
-            print("hunting placeholder")
+            hunting_minigame()
         elif jungle_first_action == "build":
             day_energy = day_energy - 1
             print("build placeholder")
