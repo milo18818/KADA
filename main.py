@@ -1,6 +1,7 @@
 from random import seed
 from random import randint
 from datetime import datetime
+from formatting import *
 
 #area choice start:
 coast_chosen = 0
@@ -20,7 +21,7 @@ def area_name_pick():
     global player_country_name
     player_country_name = input()
     print("your countries name is " + player_country_name)
-    print("what area do you want to start in: \n[🏖Coastline🏖]\n[🌳Jungle🌳]\n[🏜Desert🏜]\n[❄The Cold (Hard mode)❄]")
+    print("what area do you want to start in: \n[🏖" + (underline("Coast"))+ "line🏖]\n[🌳" + (underline("Jungle")) + "🌳]\n[🏜" + (underline("Desert")) + "🏜]\n[❄The " + (underline("Cold"))+ " " + "(" + colour_red("HARD MODE") + ")❄]")
     player_country_area_choice = input()
     if player_country_area_choice == "coast":
         global coast_chosen
@@ -43,25 +44,25 @@ def people_generator():
     for x in range(1):
         value = randint(0, 5)
         if value == 1:
-            global first_survivor1
-            first_survivor1 = 1
-            print("your first survivor is 1")
+            global first_survivor_kevin
+            first_survivor_Kevin = 1
+            print("your first survivor is Kevin")
         elif value == 2:
-            global first_survivor2
-            first_survivor2 = 1
-            print("your first survivor is 2")
+            global first_survivor_Michael
+            first_survivor_Michael = 1
+            print("your first survivor is Michael")
         elif value == 3:
-            global first_survivor3
-            first_survivor3 = 1
-            print("your first survivor is 3")
+            global first_survivor_Sangres
+            first_survivor_Sangres = 1
+            print("your first survivor is Sangres")
         elif value == 4:
-            global first_survivor4
-            first_survivor4 = 1
-            print("your first survivor is 4")
+            global first_survivor_Joenas
+            first_survivor_joenas = 1
+            print("your first survivor is Joenas")
         else:
-            global first_survivor5
-            first_survivor5 = 1
-            print("your first survivor is 5")
+            global first_survivor_Harold
+            first_survivor_Harold = 1
+            print("your first survivor is Harold")
 
 
 def terrain_generation_beggining():
@@ -105,18 +106,18 @@ def jungle_first_action():
         else:
             print("invalid option")
 
-def first_action_tutorial():
+def day_actions():
     day_energy = 3
     if jungle_chosen == 1:
         jungle_first_action()
     elif coast_chosen == 1:
-        coatline_action()
+        print("coast placeholder")
     elif desert_chosen == 1:
-        desert_action()
+        print("desert placeholder")
     else:
         print("the cold placeholder")
 
 area_name_pick()
 people_generator()
 terrain_generation_beggining()
-first_action_tutorial()
+day_actions()
